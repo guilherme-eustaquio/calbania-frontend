@@ -1,0 +1,26 @@
+<div class="nav-scroller bg-white shadow-sm">
+  <nav class="nav nav-underline">
+    <a class="nav-link active" href="#">Calbania</a>
+  </nav>
+</div>
+<div class="container-fluid mt-3">
+  <div id = "error-message-warn" style = "display: none;" class="alert alert-danger" role="alert">
+  </div>
+  <div class = "row">
+    <div class = "col-sm-4 mt-3" *ngFor="let airship of airships | keyvalue">
+      <div class="card" [style.background-color] = "this.airshipsProperties[airship.value.id].color">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <h5 class="card-title mt-2">#{{airship.value.id}}</h5>
+            <img [hidden]="!this.airshipsProperties[airship.value.id].loading" class = "btn-toggle mb-2" (click) = "executeCommand(airship.value)" [src] = "this.airshipsProperties[airship.value.id].src" [id] = "airship.value.id">
+            <div [hidden]="this.airshipsProperties[airship.value.id].loading" class="spinner-grow spinner-grow-sm mb-5" role="status">
+            </div>
+          </div>
+          <h6 class="card-subtitle mb-2 text-muted">{{airship.value.command.timestamp}}</h6>
+          <p class="card-text">Último comando: {{airship.value.command.action == "1" ? "LIGAR" : "DESLIGAR"}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

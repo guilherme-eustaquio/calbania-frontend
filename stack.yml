@@ -3,7 +3,6 @@ version: '3.7'
 services:
   calbania-frontend:
     build:
-      network: host
       context: .
       dockerfile: ./Dockerfile
     ports:

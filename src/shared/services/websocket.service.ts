@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class WebSocketService {
 
   private server : string = "ws://192.168.100.155:7070/calbania";
+  //private server : string = "ws://192.168.100.18:7070/calbania";
   private socket : WebSocket = new WebSocket(this.server);
 
   constructor(){}
